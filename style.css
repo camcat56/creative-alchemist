@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 250px 1fr 250px;
+    gap: 20px;
+    height: 600px;
+}
+
+.sidebar {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.recipes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.recipes-header h2 {
+    color: #667eea;
+    font-size: 1.3em;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 10px;
+    margin: 0;
+    flex: 1;
+}
+
+.collapse-btn {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #667eea;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 10px;
+    transition: transform 0.3s;
+}
+
+.collapse-btn:hover {
+    color: #764ba2;
+}
+
+.collapse-btn.collapsed {
+    transform: rotate(180deg);
+}
+
+.recipes.collapsed {
+    display: none;
+}
+
+.inventory {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    flex: 1;
+}
+
+.element {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 8px;
+    padding: 10px;
+    cursor: grab;
+    user-select: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.element:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.element:active {
+    cursor: grabbing;
+}
+
+.element-icon {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+.element-name {
+    font-size: 0.9em;
+    word-break: break-word;
+}
+
+.game-area {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.workspace {
+    position: relative;
+    flex: 1;
+    border: 2px dashed #667eea;
+    border-radius: 8px;
+    background: linear-gradient(to bottom right, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.workspace-element {
+    position: absolute;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 8px;
+    padding: 10px;
+    cursor: grab;
+    user-select: none;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 80px;
+    text-align: center;
+    transition: box-shadow 0.2s;
+}
+
+.workspace-element.dragging {
+    cursor: grabbing;
+    z-index: 1000;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.workspace-element-icon {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+.workspace-element-name {
+    font-size: 0.85em;
+    word-break: break-word;
+}
+
+.recipes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    font-size: 0.9em;
+}
+
+.recipe {
+    background: #f0f0f0;
+    padding: 8px;
+    border-left: 4px solid #667eea;
+    border-radius: 4px;
+    color: #333;
+}
+
+.reset-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: auto;
+    transition: background 0.3s;
+}
+
+.reset-btn:hover {
+    background: #764ba2;
+}
+
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        height: auto;
+        gap: 15px;
+    }
+
+    .sidebar {
+        max-height: 300px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+}
+
+/* Toast notification for new creations */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease-out;
+    z-index: 2000;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

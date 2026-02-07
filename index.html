@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Alchemist</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Creative Alchemist</h1>
+        <div class="main-content">
+            <div class="sidebar">
+                <h2>Elements <span id="elementCounter" style="color: #999; font-size: 0.8em;"></span></h2>
+                <div class="inventory" id="inventory">
+                    <!-- Elements will be added here by JavaScript -->
+                </div>
+                <button class="reset-btn" id="resetBtn">Reset Game</button>
+            </div>
+            
+            <div class="game-area">
+                <div class="workspace" id="workspace">
+                    <!-- Draggable elements will be placed here -->
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="recipes-header">
+                    <h2>Recipes</h2>
+                    <button class="collapse-btn" id="collapseBtn">−</button>
+                </div>
+                <div class="recipes" id="recipes">
+                    <!-- Discovered recipes will be added here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
