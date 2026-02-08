@@ -44,6 +44,42 @@ const elementDefinitions = {
     compass: { icon: '🧭', name: 'Compass', color: '#B0C4DE' },
     magnet: { icon: '🧲', name: 'Magnet', color: '#B0C4DE' },
     mriMachine: { icon: '🧲', name: 'MRI Machine', color: '#B0C4DE' },
+    wind: { icon: '💨', name: 'Wind', color: '#A8E6CF' },
+    wave: { icon: '🌊', name: 'Wave', color: '#1E90FF' },
+    sound: { icon: '🔊', name: 'Sound', color: '#FF69B4' },
+    hacker: { icon: '👨‍💻', name: 'Hacker', color: '#000000' },
+    computer: { icon: '💻', name: 'Computer', color: '#B0C4DE' },
+    brain: { icon: '🧠', name: 'Brain', color: '#F5DEB3' },
+    idea: { icon: '💡', name: 'Idea', color: '#F5DEB3' },
+    philosophy: { icon: '📜', name: 'Philosophy', color: '#F5DEB3' },
+    pressure: { icon: '💨', name: 'Pressure', color: '#B0C4DE' },
+    paper: { icon: '📄', name: 'Paper', color: '#FFFFFF' },
+    book: { icon: '📕', name: 'Book', color: '#FFFFFF' },
+    religion: { icon: '🛐', name: 'Religion', color: '#FFD700' },
+    church: { icon: '⛪', name: 'Church', color: '#FFD700' },
+    bell: { icon: '🔔', name: 'Bell', color: '#FFD700' },
+    small: { icon: '🤏', name: 'Small', color: '#D3D3D3' },
+    smartphone: { icon: '📱', name: 'Smartphone', color: '#B0C4DE' },
+    rotaryPhone: { icon: '☎️', name: 'Rotary Phone', color: '#B0C4DE' },
+    kasaneTeto: { icon: '🎤', name: 'Kasane Teto', color: '#FF69B4' },
+    robot: { icon: '🤖', name: 'Robot', color: '#B0C4DE' },
+    blocks: { icon: '🧱', name: 'Blocks', color: '#B22222' },
+    child: { icon: '🧒', name: 'Child', color: '#F5DEB3' },
+    toy: { icon: '🧸', name: 'Toy', color: '#FF69B4' },
+    roblox: { icon: '🎮', name: 'Roblox', color: '#FF0000' },
+    planet: { icon: '🪐', name: 'Planet', color: '#8B7355' },
+    sun: { icon: '☀️', name: 'Sun', color: '#FFD700' },
+    rainbow: { icon: '🌈', name: 'Rainbow', color: '#FF69B4' },
+    color: { icon: '🎨', name: 'Color', color: '#FF69B4' },
+    fruit: { icon: '🍎', name: 'Fruit', color: '#FF6347' },
+    alcohol: { icon: '🍺', name: 'Alcohol', color: '#FFD700' },
+    wine: { icon: '🍷', name: 'Wine', color: '#800000' },
+    drunk: { icon: '🥴', name: 'Drunk', color: '#FFD700' },
+    confusion: { icon: '😕', name: 'Confusion', color: '#D3D3D3' },
+    oOIConfusionIOO: { icon: '😵', name: 'oOIConfusionIOo', color: '#D3D3D3' },
+    videogame: { icon: '🎮', name: 'Videogame', color: '#FF69B4' },
+    robloxGame: { icon: '🎮', name: 'Roblox Game', color: '#FF0000' },
+    confusionGameshow: { icon: '📺', name: 'Confusion Gameshow', color: '#D3D3D3' },
 };
 
 // Recipe data structure - maps created items to their recipe combinations
@@ -88,6 +124,42 @@ const recipeData = {
     compass: { inputs: ['metal', 'glass'], display: 'Metal + Glass' },
     magnet: { inputs: ['compass', 'earth'], display: 'Compass + Earth' },
     mriMachine: { inputs: ['magnet', 'hospital'], display: 'Magnet + Hospital' },
+    wind: { inputs: ['air', 'energy'], display: 'Air + Energy' },
+    wave: { inputs: ['wind', 'sea'], display: 'Wind + Sea' },
+    sound: { inputs: ['wave', 'air'], display: 'Wave + Air' },
+    hacker: { inputs: ['glasses', 'human'], display: 'Computer + Human' },
+    computer: { inputs: ['hacker', 'tool'], display: 'Hacker + Tool' },
+    brain: { inputs: ['human', 'computer'], display: 'Human + Computer' },
+    idea: { inputs: ['brain', 'human'], display: 'Brain + Human' },
+    philosophy: { inputs: ['idea', 'idea'], display: 'Idea + Idea' },
+    pressure: { inputs: ['air', 'air'], display: 'Air + Air' },
+    paper: { inputs: ['wood', 'pressure'], display: 'Wood + Pressure' },
+    book: { inputs: ['paper', 'paper'], display: 'Paper + Paper' },
+    religion: { inputs: ['philosophy', 'book'], display: 'Philosophy + Book' },
+    church: { inputs: ['religion', 'house'], display: 'Religion + House' },
+    bell: { inputs: ['church', 'sound'], display: 'Church + Sound' },
+    small: { inputs: ['bacteria', 'philosophy'], display: 'Bacteria + Philosophy' },
+    smartphone: { inputs: ['computer', 'small'], display: 'Computer + Small' },
+    rotaryPhone: { inputs: ['phone', 'bell'], display: 'Phone + Bell' },
+    kasaneTeto: { inputs: ['bird', 'brain'], display: 'Bird + Brain' },
+    robot: { inputs: ['computer', 'brain'], display: 'Computer + Brain' },
+    blocks: { inputs: ['brick', 'toy'], display: 'Brick + Toy' },
+    child: { inputs: ['human', 'human'], display: 'Human + Human' },
+    toy: { inputs: ['tool', 'child'], display: 'Tool + Child' },
+    roblox: { inputs: ['robot', 'blocks'], display: 'Robot + Blocks' },
+    planet: { inputs: ['earth', 'earth'], display: 'Earth + Earth' },
+    sun: { inputs: ['fire', 'planet'], display: 'Fire + Planet' },
+    rainbow: { inputs: ['sun', 'rain'], display: 'Sun + Rain' },
+    color: { inputs: ['rainbow', 'idea'], display: 'Rainbow + Idea' },
+    fruit: { inputs: ['plant', 'sun'], display: 'Plant + Sun' },
+    alcohol: { inputs: ['fruit', 'time'], display: 'Fruit + Time' },
+    wine: { inputs: ['alcohol', 'water'], display: 'Alcohol + Water' },
+    drunk: { inputs: ['wine', 'human'], display: 'Wine + Human' },
+    confusion: { inputs: ['drunk', 'human'], display: 'Drunk + Human' },
+    oOIConfusionIOO: { inputs: ['confusion', 'roblox'], display: 'Confusion + Roblox' },
+    videogame: { inputs: ['computer', 'toy'], display: 'Computer + Toy' },
+    robloxGame: { inputs: ['videogame', 'roblox'], display: 'Videogame + Roblox' },
+    confusionGameshow: { inputs: ['oOIConfusionIOO', 'robloxGame'], display: 'oOIConfusionIOO + Roblox Game' },
 };
 
 // Recipes mapping - combinations that produce new items
@@ -162,6 +234,73 @@ const recipes = {
     'earth+compass': 'magnet',
     'magnet+hospital': 'mriMachine',
     'hospital+magnet': 'mriMachine',
+    'air+energy': 'wind',
+    'energy+air': 'wind',
+    'wind+sea': 'wave',
+    'sea+wind': 'wave',
+    'wave+air': 'sound',
+    'air+wave': 'sound',
+    'glasses+human': 'hacker',
+    'human+glasses': 'hacker',
+    'hacker+tool': 'computer',
+    'tool+hacker': 'computer',
+    'human+computer': 'brain',
+    'computer+human': 'brain',
+    'brain+human': 'idea',
+    'human+brain': 'idea',
+    'idea+idea': 'philosophy',
+    'air+air': 'pressure',
+    'wood+pressure': 'paper',
+    'pressure+wood': 'paper',
+    'paper+paper': 'book',
+    'philosophy+book': 'religion',
+    'book+philosophy': 'religion',
+    'religion+house': 'church',
+    'house+religion': 'church',
+    'church+sound': 'bell',
+    'sound+church': 'bell',
+    'bacteria+philosophy': 'small',
+    'philosophy+bacteria': 'small',
+    'computer+small': 'smartphone',
+    'small+computer': 'smartphone',
+    'smartphone+bell': 'rotaryPhone',
+    'bell+smartphone': 'rotaryPhone',
+    'bird+brain': 'kasaneTeto',
+    'brain+bird': 'kasaneTeto',
+    'computer+brain': 'robot',
+    'brain+computer': 'robot',
+    'human+human': 'child',
+    'tool+child': 'toy',
+    'child+tool': 'toy',
+    'brick+toy': 'blocks',
+    'toy+brick': 'blocks',
+    'robot+blocks': 'roblox',
+    'blocks+robot': 'roblox',
+    'earth+earth': 'planet',
+    'fire+planet': 'sun',
+    'planet+fire': 'sun',
+    'sun+rain': 'rainbow',
+    'rain+sun': 'rainbow',
+    'rainbow+idea': 'color',
+    'idea+rainbow': 'color',
+    'plant+sun': 'fruit',
+    'sun+plant': 'fruit',
+    'fruit+time': 'alcohol',
+    'time+fruit': 'alcohol',
+    'alcohol+water': 'wine',
+    'water+alcohol': 'wine',
+    'wine+human': 'drunk',
+    'human+wine': 'drunk',
+    'drunk+human': 'confusion',
+    'human+drunk': 'confusion',
+    'confusion+roblox': 'oOIConfusionIOO',
+    'roblox+confusion': 'oOIConfusionIOO',
+    'computer+toy': 'videogame',
+    'toy+computer': 'videogame',
+    'videogame+roblox': 'robloxGame',
+    'roblox+videogame': 'robloxGame',
+    'oOIConfusionIOO+robloxGame': 'confusionGameshow',
+    'robloxGame+oOIConfusionIOO': 'confusionGameshow',
 };
 
 // Game state
@@ -176,6 +315,11 @@ let discoveredRecipes = new Set();
 let draggedElement = null;
 let offsetX = 0;
 let offsetY = 0;
+let touchElement = null;
+let touchOffsetX = 0;
+let touchOffsetY = 0;
+let touchStartX = 0;
+let touchStartY = 0;
 
 const workspace = document.getElementById('workspace');
 const inventoryDiv = document.getElementById('inventory');
@@ -285,6 +429,7 @@ function createInventoryElement(elementKey) {
     `;
     
     div.addEventListener('dragstart', handleInventoryDragStart);
+    div.addEventListener('touchstart', handleInventoryTouchStart, false);
     
     return div;
 }
@@ -309,6 +454,9 @@ function createWorkspaceElement(elementKey, x, y) {
     // Add event listeners
     div.addEventListener('dragstart', handleWorkspaceDragStart);
     div.addEventListener('dragend', handleDragEnd);
+    div.addEventListener('touchstart', handleWorkspaceTouchStart, false);
+    div.addEventListener('touchmove', handleWorkspaceTouchMove, false);
+    div.addEventListener('touchend', handleWorkspaceTouchEnd, false);
     
     workspace.appendChild(div);
     
@@ -408,6 +556,93 @@ function handleInventoryDrop(e) {
         showNotification('Element removed');
         saveGame();
     }
+}
+
+// ============ TOUCH EVENT HANDLERS FOR MOBILE ============
+
+// Handle touch start on inventory element
+function handleInventoryTouchStart(e) {
+    const elementKey = e.target.closest('.element').dataset.element;
+    touchElement = e.target.closest('.element');
+    
+    const touch = e.touches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+    
+    draggedElement = {
+        type: 'inventory',
+        element: elementKey,
+        source: touchElement,
+    };
+}
+
+// Handle touch start on workspace element
+function handleWorkspaceTouchStart(e) {
+    const element = e.target.closest('.workspace-element');
+    if (!element) return;
+    
+    const touch = e.touches[0];
+    const rect = element.getBoundingClientRect();
+    
+    touchOffsetX = touch.clientX - rect.left;
+    touchOffsetY = touch.clientY - rect.top;
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+    
+    draggedElement = {
+        type: 'workspace',
+        element: element.dataset.element,
+        source: element,
+    };
+    
+    element.classList.add('dragging');
+    element.style.zIndex = '1000';
+}
+
+// Handle touch move on workspace element
+function handleWorkspaceTouchMove(e) {
+    if (!draggedElement || draggedElement.type !== 'workspace') return;
+    
+    e.preventDefault();
+    
+    const touch = e.touches[0];
+    const element = draggedElement.source;
+    const workspaceRect = workspace.getBoundingClientRect();
+    
+    let x = touch.clientX - workspaceRect.left - touchOffsetX;
+    let y = touch.clientY - workspaceRect.top - touchOffsetY;
+    
+    // Keep elements within bounds
+    x = Math.max(0, Math.min(x, workspaceRect.width - 80));
+    y = Math.max(0, Math.min(y, workspaceRect.height - 80));
+    
+    element.style.left = x + 'px';
+    element.style.top = y + 'px';
+}
+
+// Handle touch end
+function handleWorkspaceTouchEnd(e) {
+    const element = draggedElement?.source;
+    
+    if (!element) return;
+    
+    element.classList.remove('dragging');
+    element.style.zIndex = 'auto';
+    
+    const touch = e.changedTouches[0];
+    const x = touch.clientX;
+    const y = touch.clientY;
+    
+    // Check if dropped on inventory (for deletion)
+    const inventoryRect = inventoryDiv.getBoundingClientRect();
+    if (x >= inventoryRect.left && x <= inventoryRect.right && 
+        y >= inventoryRect.top && y <= inventoryRect.bottom) {
+        element.remove();
+        showNotification('Element removed');
+        saveGame();
+    }
+    
+    draggedElement = null;
 }
 
 // Check for collisions and combine elements
@@ -522,6 +757,36 @@ workspace.addEventListener('drop', handleWorkspaceDrop);
 inventoryDiv.addEventListener('dragover', handleInventoryDragOver);
 inventoryDiv.addEventListener('dragleave', handleInventoryDragLeave);
 inventoryDiv.addEventListener('drop', handleInventoryDrop);
+
+// Set up touch events for mobile - workspace drop zone
+workspace.addEventListener('touchmove', (e) => {
+    if (draggedElement && draggedElement.type === 'inventory') {
+        e.preventDefault();
+    }
+}, false);
+
+workspace.addEventListener('touchend', (e) => {
+    if (!draggedElement || draggedElement.type !== 'inventory') return;
+    
+    const elementKey = draggedElement.element;
+    const touch = e.changedTouches[0];
+    const rect = workspace.getBoundingClientRect();
+    
+    let x = touch.clientX - rect.left - 40;
+    let y = touch.clientY - rect.top - 40;
+    
+    // Keep elements within bounds
+    x = Math.max(0, Math.min(x, rect.width - 80));
+    y = Math.max(0, Math.min(y, rect.height - 80));
+    
+    // Check if touch ended within workspace bounds
+    if (touch.clientX >= rect.left && touch.clientX <= rect.right &&
+        touch.clientY >= rect.top && touch.clientY <= rect.bottom) {
+        createWorkspaceElement(elementKey, x, y);
+    }
+    
+    draggedElement = null;
+}, false);
 
 // Check for collisions periodically
 setInterval(checkCollisions, 100);
