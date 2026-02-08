@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 body {
@@ -109,6 +112,7 @@ h1 {
     color: white;
     font-weight: bold;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    touch-action: none;
 }
 
 .element:hover {
@@ -162,6 +166,7 @@ h1 {
     min-width: 80px;
     text-align: center;
     transition: box-shadow 0.2s;
+    touch-action: none;
 }
 
 .workspace-element.dragging {
@@ -225,6 +230,34 @@ h1 {
 
     h1 {
         font-size: 2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .element {
+        padding: 15px 10px;
+        min-height: 70px;
+    }
+
+    .element-icon {
+        font-size: 2em;
+    }
+
+    .workspace {
+        min-height: 400px;
+    }
+
+    .workspace-element {
+        min-width: 70px;
+        padding: 8px;
+    }
+
+    .workspace-element-icon {
+        font-size: 1.5em;
+    }
+
+    .workspace-element-name {
+        font-size: 0.75em;
     }
 }
 
