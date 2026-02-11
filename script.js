@@ -75,11 +75,7 @@ const elementDefinitions = {
     alcohol: { icon: '🍺', name: 'Alcohol', color: '#FFD700' },
     wine: { icon: '🍷', name: 'Wine', color: '#800000' },
     drunk: { icon: '🥴', name: 'Drunk', color: '#FFD700' },
-    confusion: { icon: '😕', name: 'Confusion', color: '#D3D3D3' },
-    oOIConfusionIOO: { icon: '😵', name: 'oOIConfusionIOo', color: '#D3D3D3' },
     videogame: { icon: '🎮', name: 'Videogame', color: '#FF69B4' },
-    robloxGame: { icon: '🎮', name: 'Roblox Game', color: '#FF0000' },
-    confusionGameshow: { icon: '📺', name: 'Confusion Gameshow', color: '#D3D3D3' },
 };
 
 // Recipe data structure - maps created items to their recipe combinations
@@ -155,11 +151,7 @@ const recipeData = {
     alcohol: { inputs: ['fruit', 'time'], display: 'Fruit + Time' },
     wine: { inputs: ['alcohol', 'water'], display: 'Alcohol + Water' },
     drunk: { inputs: ['wine', 'human'], display: 'Wine + Human' },
-    confusion: { inputs: ['drunk', 'human'], display: 'Drunk + Human' },
-    oOIConfusionIOO: { inputs: ['confusion', 'roblox'], display: 'Confusion + Roblox' },
     videogame: { inputs: ['computer', 'toy'], display: 'Computer + Toy' },
-    robloxGame: { inputs: ['videogame', 'roblox'], display: 'Videogame + Roblox' },
-    confusionGameshow: { inputs: ['oOIConfusionIOO', 'robloxGame'], display: 'oOIConfusionIOO + Roblox Game' },
 };
 
 // Recipes mapping - combinations that produce new items
@@ -291,16 +283,8 @@ const recipes = {
     'water+alcohol': 'wine',
     'wine+human': 'drunk',
     'human+wine': 'drunk',
-    'drunk+human': 'confusion',
-    'human+drunk': 'confusion',
-    'confusion+roblox': 'oOIConfusionIOO',
-    'roblox+confusion': 'oOIConfusionIOO',
     'computer+toy': 'videogame',
     'toy+computer': 'videogame',
-    'videogame+roblox': 'robloxGame',
-    'roblox+videogame': 'robloxGame',
-    'oOIConfusionIOO+robloxGame': 'confusionGameshow',
-    'robloxGame+oOIConfusionIOO': 'confusionGameshow',
 };
 
 // Game state
@@ -793,3 +777,4 @@ setInterval(checkCollisions, 100);
 
 // Initialize the game on load
 window.addEventListener('DOMContentLoaded', initializeGame);
+
