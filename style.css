@@ -1,287 +1,406 @@
+/* ==========================================
+   Element Crafter - style.css
+   ========================================== */
+
+/* ---------- Root ---------- */
+
+:root {
+    --bg: #f4f7fb;
+    --panel: #ffffff;
+    --border: #dfe7ef;
+    --text: #253042;
+    --muted: #6b7685;
+    --shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    --radius: 16px;
+    --transition: 0.2s ease;
+}
+
+/* ---------- Reset ---------- */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background: var(--bg);
+    color: var(--text);
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
 }
 
-.container {
-    width: 100%;
-    max-width: 1400px;
-}
+/* ---------- Header ---------- */
 
-h1 {
-    text-align: center;
-    color: white;
-    margin-bottom: 30px;
-    font-size: 2.5em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.main-content {
-    display: grid;
-    grid-template-columns: 250px 1fr 250px;
-    gap: 20px;
-    height: 600px;
-}
-
-.sidebar {
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-}
-
-.sidebar h2 {
-    color: #667eea;
-    margin-bottom: 15px;
-    font-size: 1.3em;
-    border-bottom: 2px solid #667eea;
-    padding-bottom: 10px;
-}
-
-.recipes-header {
+.topbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
-}
 
-.recipes-header h2 {
-    color: #667eea;
-    font-size: 1.3em;
-    border-bottom: 2px solid #667eea;
-    padding-bottom: 10px;
-    margin: 0;
-    flex: 1;
-}
+    padding: 20px 32px;
 
-.collapse-btn {
-    background: none;
-    border: none;
-    font-size: 1.5em;
-    color: #667eea;
-    cursor: pointer;
-    padding: 0;
-    margin-left: 10px;
-    transition: transform 0.3s;
-}
-
-.collapse-btn:hover {
-    color: #764ba2;
-}
-
-.collapse-btn.collapsed {
-    transform: rotate(180deg);
-}
-
-.recipes.collapsed {
-    display: none;
-}
-
-.inventory {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    flex: 1;
-}
-
-.element {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 8px;
-    padding: 10px;
-    cursor: grab;
-    user-select: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    touch-action: none;
-}
-
-.element:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.element:active {
-    cursor: grabbing;
-}
-
-.element-icon {
-    font-size: 1.8em;
-    margin-bottom: 5px;
-}
-
-.element-name {
-    font-size: 0.9em;
-    word-break: break-word;
-}
-
-.game-area {
     background: white;
-    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.topbar h1 {
+    font-size: 2rem;
+}
+
+.subtitle {
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+/* ---------- Layout ---------- */
+
+.app {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 24px;
+
+    padding: 24px;
+}
+
+/* ---------- Panels ---------- */
+
+.panel {
+    background: var(--panel);
+
+    border-radius: var(--radius);
+
     padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    box-shadow: var(--shadow);
+
+    border: 1px solid var(--border);
+}
+
+.panel h2 {
+    margin-bottom: 16px;
+}
+
+/* ---------- Sidebar ---------- */
+
+.sidebar {
     display: flex;
     flex-direction: column;
+    gap: 24px;
 }
 
-.workspace {
-    position: relative;
-    flex: 1;
-    border: 2px dashed #667eea;
-    border-radius: 8px;
-    background: linear-gradient(to bottom right, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
-    min-height: 500px;
-    overflow: hidden;
+/* ---------- Stats ---------- */
+
+.stats-grid {
+    display: grid;
+    gap: 12px;
 }
 
-.workspace-element {
-    position: absolute;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 8px;
-    padding: 10px;
-    cursor: grab;
-    user-select: none;
-    color: white;
+.stat {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    background: #f8fafc;
+}
+
+.label {
+    color: var(--muted);
+}
+
+/* ---------- Favorites ---------- */
+
+.favorites-list {
+    min-height: 80px;
+}
+
+.empty-message {
+    color: var(--muted);
+    font-style: italic;
+}
+
+/* ---------- Crafting ---------- */
+
+.crafting-panel {
+    margin-bottom: 24px;
+}
+
+.craft-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 18px;
+
+    align-items: center;
+
+    margin: 20px 0;
+}
+
+.plus-sign {
+    font-size: 2rem;
     font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    min-width: 80px;
+}
+
+.craft-slot {
+    min-height: 120px;
+
+    border: 3px dashed #bfc8d5;
+
+    border-radius: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     text-align: center;
-    transition: box-shadow 0.2s;
-    touch-action: none;
+
+    padding: 10px;
+
+    background: #fafbfd;
+
+    transition: var(--transition);
+
+    cursor: pointer;
 }
 
-.workspace-element.dragging {
-    cursor: grabbing;
-    z-index: 1000;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+.craft-slot.drag-over {
+    transform: scale(1.02);
 }
 
-.workspace-element-icon {
-    font-size: 1.8em;
-    margin-bottom: 5px;
+.craft-actions {
+    display: flex;
+    gap: 12px;
+
+    margin-bottom: 20px;
 }
 
-.workspace-element-name {
-    font-size: 0.85em;
-    word-break: break-word;
+/* ---------- Buttons ---------- */
+
+button {
+    cursor: pointer;
+
+    border: none;
+
+    transition: var(--transition);
+
+    font: inherit;
 }
 
-.recipes {
+button:hover {
+    transform: translateY(-2px);
+}
+
+.primary-btn,
+.secondary-btn,
+.danger-btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+}
+
+.primary-btn {
+    background: #4285f4;
+    color: white;
+}
+
+.secondary-btn {
+    background: #e5e9ef;
+}
+
+.danger-btn {
+    background: #d9534f;
+    color: white;
+}
+
+/* ---------- Result ---------- */
+
+.result-box {
+    min-height: 60px;
+
+    border-radius: 12px;
+
+    background: #f8fafc;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px;
+
+    text-align: center;
+}
+
+/* ---------- Collection ---------- */
+
+.collection-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+
+    margin-bottom: 20px;
+}
+
+.collection-controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+input,
+select {
+    padding: 10px 12px;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--border);
+
+    font: inherit;
+}
+
+/* ---------- Elements ---------- */
+
+.elements-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(140px, 1fr)
+        );
+
+    gap: 14px;
+}
+
+.element-card {
+    position: relative;
+
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     gap: 8px;
-    flex: 1;
-    font-size: 0.9em;
-}
 
-.recipe {
-    background: #f0f0f0;
-    padding: 8px;
-    border-left: 4px solid #667eea;
-    border-radius: 4px;
-    color: #333;
-}
+    padding: 16px;
 
-.reset-btn {
-    background: #667eea;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 14px;
+
+    background: linear-gradient(
+        180deg,
+        white,
+        #f7f9fc
+    );
+
+    border: 1px solid var(--border);
+
     cursor: pointer;
-    font-weight: bold;
-    margin-top: auto;
-    transition: background 0.3s;
+
+    user-select: none;
+
+    transition: var(--transition);
 }
 
-.reset-btn:hover {
-    background: #764ba2;
+.element-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
 }
 
-@media (max-width: 1024px) {
-    .main-content {
+.element-card.dragging {
+    opacity: 0.5;
+}
+
+.emoji {
+    font-size: 2rem;
+}
+
+.name {
+    font-weight: 600;
+}
+
+.favorite-btn {
+    position: absolute;
+
+    top: 8px;
+    right: 8px;
+
+    background: transparent;
+
+    font-size: 1rem;
+}
+
+.favorite-btn:hover {
+    transform: scale(1.2);
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+    padding: 24px;
+
+    text-align: center;
+
+    color: var(--muted);
+}
+
+code {
+    background: #eef2f7;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+/* ---------- Utilities ---------- */
+
+.hidden {
+    display: none !important;
+}
+
+.selected {
+    outline: 3px solid #4285f4;
+}
+
+.favorite {
+    border-color: gold;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+    .app {
         grid-template-columns: 1fr;
-        height: auto;
-        gap: 15px;
     }
 
-    .sidebar {
-        max-height: 300px;
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
     }
 
-    h1 {
-        font-size: 2em;
-    }
-}
-
-@media (max-width: 768px) {
-    .element {
-        padding: 15px 10px;
-        min-height: 70px;
+    .craft-grid {
+        grid-template-columns: 1fr;
     }
 
-    .element-icon {
-        font-size: 2em;
+    .plus-sign {
+        text-align: center;
     }
 
-    .workspace {
-        min-height: 400px;
+    .collection-header {
+        flex-direction: column;
     }
 
-    .workspace-element {
-        min-width: 70px;
-        padding: 8px;
+    .collection-controls {
+        width: 100%;
     }
 
-    .workspace-element-icon {
-        font-size: 1.5em;
-    }
-
-    .workspace-element-name {
-        font-size: 0.75em;
-    }
-}
-
-/* Toast notification for new creations */
-.notification {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #4CAF50;
-    color: white;
-    padding: 15px 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    animation: slideIn 0.3s ease-out;
-    z-index: 2000;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(400px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
+    input,
+    select {
+        flex: 1;
+        width: 100%;
     }
 }
