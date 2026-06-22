@@ -3,39 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creative Alchemist</title>
+    <title>Element Crafter</title>
+
+    <!-- Main stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="container">
-        <h1>Creative Alchemist</h1>
-        <div class="main-content">
-            <div class="sidebar">
-                <h2>Elements <span id="elementCounter" style="color: #999; font-size: 0.8em;"></span></h2>
-                <div class="inventory" id="inventory">
-                    <!-- Elements will be added here by JavaScript -->
-                </div>
-                <button class="reset-btn" id="resetBtn">Reset Game</button>
-            </div>
-            
-            <div class="game-area">
-                <div class="workspace" id="workspace">
-                    <!-- Draggable elements will be placed here -->
-                </div>
-            </div>
 
-            <div class="sidebar">
-                <div class="recipes-header">
-                    <h2>Recipes</h2>
-                    <button class="collapse-btn" id="collapseBtn">−</button>
-                </div>
-                <div class="recipes" id="recipes">
-                    <!-- Discovered recipes will be added here by JavaScript -->
-                </div>
-            </div>
-        </div>
+<body>
+
+<header class="topbar">
+    <div>
+        <h1>🧪 Element Crafter</h1>
+        <p class="subtitle">
+            Combine elements to discover new creations.
+        </p>
     </div>
 
-    <script src="script.js"></script>
+    <button id="resetBtn" class="danger-btn">
+        Reset Progress
+    </button>
+</header>
+
+<div class="app">
+
+    <!-- =========================
+         LEFT SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <section class="panel">
+            <h2>📊 Statistics</h2>
+
+            <div class="stats-grid">
+
+                <div class="stat">
+                    <span class="label">Discovered</span>
+                    <span id="discoveredCount">4</span>
+                </div>
+
+                <div class="stat">
+                    <span class="label">Total Elements</span>
+                    <span id="totalCount">5</span>
+                </div>
+
+                <div class="stat">
+                    <span class="label">Completion</span>
+                    <span id="completionPercent">100%</span>
+                </div>
+
+                <div class="stat">
+                    <span class="label">Attempts</span>
+                    <span id="attemptCount">0</span>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="panel">
+
+            <h2>⭐ Favorites</h2>
+
+            <div
+                id="favoritesList"
+                class="favorites-list"
+            >
+                <p class="empty-message">
+                    No favorites yet.
+                </p>
+            </div>
+
+        </section>
+
+    </aside>
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+        <!-- Crafting -->
+
+        <section class="panel crafting-panel">
+
+            <h2>⚗️ Crafting</h2>
+
+            <div class="craft-grid">
+
+                <div
+                    id="slotA"
+                    class="craft-slot"
+                >
+                    Drop or Select Element
+                </div>
+
+                <div class="plus-sign">
+                    +
+                </div>
+
+                <div
+                    id="slotB"
+                    class="craft-slot"
+                >
+                    Drop or Select Element
+                </div>
+
+            </div>
+
+            <div class="craft-actions">
+
+                <button
+                    id="combineBtn"
+                    class="primary-btn"
+                >
+                    Combine
+                </button>
+
+                <button
+                    id="clearBtn"
+                    class="secondary-btn"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+            <div
+                id="resultBox"
+                class="result-box"
+            >
+                Select or drag two elements to begin.
+            </div>
+
+        </section>
+
+        <!-- Collection -->
+
+        <section class="panel">
+
+            <div class="collection-header">
+
+                <h2>🧩 Collection</h2>
+
+                <div class="collection-controls">
+
+                    <input
+                        id="searchInput"
+                        type="text"
+                        placeholder="Search elements..."
+                    >
+
+                    <select id="sortSelect">
+
+                        <option value="discovery">
+                            Discovery Order
+                        </option>
+
+                        <option value="alphabetical">
+                            Alphabetical
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div
+                id="elementsContainer"
+                class="elements-grid"
+            >
+
+                <!-- Starting elements -->
+
+                <div
+                    class="element-card"
+                    draggable="true"
+                    data-element="Fire"
+                >
+                    <span class="emoji">🔥</span>
+                    <span class="name">Fire</span>
+
+                    <button
+                        class="favorite-btn"
+                        title="Favorite"
+                    >
+                        ☆
+                    </button>
+                </div>
+
+                <div
+                    class="element-card"
+                    draggable="true"
+                    data-element="Water"
+                >
+                    <span class="emoji">💧</span>
+                    <span class="name">Water</span>
+
+                    <button
+                        class="favorite-btn"
+                    >
+                        ☆
+                    </button>
+                </div>
+
+                <div
+                    class="element-card"
+                    draggable="true"
+                    data-element="Earth"
+                >
+                    <span class="emoji">🌍</span>
+                    <span class="name">Earth</span>
+
+                    <button
+                        class="favorite-btn"
+                    >
+                        ☆
+                    </button>
+                </div>
+
+                <div
+                    class="element-card"
+                    draggable="true"
+                    data-element="Air"
+                >
+                    <span class="emoji">🌬️</span>
+                    <span class="name">Air</span>
+
+                    <button
+                        class="favorite-btn"
+                    >
+                        ☆
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- Footer -->
+
+<footer class="footer">
+    <p>
+        Built with HTML, CSS, and JavaScript.
+        Add recipes in <code>script.js</code> to expand the game.
+    </p>
+</footer>
+
+<!-- Main game logic -->
+<script src="script.js"></script>
+
 </body>
 </html>
